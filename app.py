@@ -52,7 +52,7 @@ if uploaded_file:
         #if st.button("Generate"):
         agent = create_pandas_dataframe_agent(OpenAI(model_name="gpt-4", temperature=0), dataframe, verbose=True)
         with st.spinner('Loading some  Data Analytics questions...'):
-            ques_input = "Suggest around ten complex data analysis questions on this dataframe in a list"
+            ques_input = "Suggest around ten complex data analysis questions on this dataframe in a markdown list"
             q_output = agent.run(ques_input)
             questions.append(q_output)
             st.write("Some sample questions on this dataset:\n"+ questions[0])
