@@ -52,7 +52,7 @@ if uploaded_file:
         #if st.button("Generate"):
         agent = create_pandas_dataframe_agent(OpenAI(temperature=0), dataframe, verbose=True)
         with st.spinner('Loading some  Data Analytics questions...'):
-            ques_input = "Suggest few complex data analysis questions on this dataframe in a list"
+            ques_input = "Suggest around ten complex data analysis questions on this dataframe in a list"
             q_output = agent.run(ques_input)
             questions.append(q_output)
             st.write("Some sample questions on this dataset:\n"+ questions[0])
@@ -62,7 +62,7 @@ if st.button("Post"):
         suffix = "\nThis is the result of `print(df.head())`:\n{df}\n\nBegin!\nQuestion: {input}\n{agent_scratchpad}"
         #agent = create_pandas_dataframe_agent(OpenAI(temperature=0), dataframe, verbose=True, prefix=prefix, suffix=suffix)
         if user_input:
-            output = agent.run(user_input)
+            output = agent.run(user_input+'. Moreover, provide a detailed analysis of your inference below Analysis header')
             # store the output
             st.session_state.past.append(user_input)
             st.session_state.generated.append(output)
