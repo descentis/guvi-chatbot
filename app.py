@@ -43,7 +43,7 @@ def get_file(file_data):
 
 
 # create a file uploader
-uploaded_file = st.file_uploader("Choose a file")
+uploaded_file = st.file_uploader("Choose a file (XLSX or CSV)")
 user_input = get_text()
 questions = []
 if uploaded_file:
