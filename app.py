@@ -50,7 +50,7 @@ if uploaded_file:
     dataframe = get_file(uploaded_file)
     with st.sidebar:
         #if st.button("Generate"):
-        agent = create_pandas_dataframe_agent(OpenAI(temperature=0), dataframe, verbose=True)
+        agent = create_pandas_dataframe_agent(OpenAI(model_name="gpt-4", temperature=0), dataframe, verbose=True)
         with st.spinner('Loading some  Data Analytics questions...'):
             ques_input = "Suggest around ten complex data analysis questions on this dataframe in a list"
             q_output = agent.run(ques_input)
